@@ -1,0 +1,26 @@
+{
+  "name": "foodoholic",
+  "version": "1.0.0",
+  "description": "this is react course",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderpeacat5/Foodify.git"
+  },
+  "keywords": [
+    "react",
+    "project"
+  ],
+  "author": "Gayatri Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderpeacat5/Foodify/issues"
+  },
+  "homepage": "https://github.com/coderpeacat5/Foodify#readme",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
