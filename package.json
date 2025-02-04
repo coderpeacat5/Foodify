@@ -2,8 +2,10 @@
   "name": "foodoholic",
   "version": "1.0.0",
   "description": "this is react course",
-  "main": "App.js",
+
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -21,6 +23,14 @@
   },
   "homepage": "https://github.com/coderpeacat5/Foodify#readme",
   "devDependencies": {
-    "parcel": "^2.13.3"
-  }
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist" : [
+    "last 2 versions"
+  ]
 }
