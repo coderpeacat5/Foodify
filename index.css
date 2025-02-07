@@ -23,6 +23,7 @@ li {
     list-style: none;
     padding: 0px 20px;
     font-size: large;
+    text-decoration: none;
 }
 
 .search {
@@ -79,4 +80,35 @@ li {
 
 .filter {
     display: flex;
+}
+
+.menu {
+    padding: 10px 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-title {
+    text-align: center;
+}
+
+.menu-title h2 {
+    margin: 50px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px ;
+}
+
+.menu-items p {
+    font-size:medium;
+    color: #646464;
+}
+
+.menu-img {
+    width: 150px;
+    height: 130px;
 }
