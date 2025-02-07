@@ -34,13 +34,15 @@ li {
 .res-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .res-card {
     width: 200px;
-    /* height: 400px; */
+    height: 450px;
     margin: 10px;
     padding: 5px;
+    
 }
 
 .res-card:hover {
@@ -111,4 +113,14 @@ li {
 .menu-img {
     width: 150px;
     height: 130px;
+}
+
+.user-card {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+}
+
+.user-img {
+    width: 100px;
 }
