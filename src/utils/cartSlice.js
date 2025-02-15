@@ -6,17 +6,14 @@ const cartSlice = createSlice({
         items : [],
     },
     reducers : {
-        // mutating state here
+        
         addItem : (state, action) => {
-
-            
-
         // Vanilla Redux
         // const newState = [...state]
         // newState.items.push(action.payload)
         // return newState
 
-            // Redux Toolkit
+            // Redux Toolkit- mutating state here
             state.items.push(action.payload)
         },
         removeItem : (state, action) => {
