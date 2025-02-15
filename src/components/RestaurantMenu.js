@@ -1,7 +1,8 @@
 import Shimmer from "./Shimmer";
-import { MENU_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
 
@@ -9,39 +10,41 @@ const RestaurantMenu = () => {
 
     const resInfo = useRestaurantMenu(resId)
 
+    const [showIndex, setShowIndex] = useState(0);
+
     if (resInfo === null) return <Shimmer />
 
-    const { name, cuisines, costForTwoMessage, areaName, totalRatingsString, sla } = resInfo?.cards?.[2]?.card?.card?.info;
-    console.log(resInfo)
+    const { name, cuisines, costForTwoMessage, areaName, avgRating, totalRatingsString, sla } = resInfo?.cards?.[2]?.card?.card?.info;
+    // console.log(resInfo)
 
     const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-    console.log(itemCards)
+    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (c) => c.card?.["card"]?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    // console.log(categories)
 
     return (
         <div className="p-2 flex flex-col items-center bg-[#E9EED9]">
             <div className=" w-2/4 ">
                 <h1 className="font-bold text-2xl text-center mb-7">{name} </h1>
                 <div className="shadow-2xl border border-gray-300 p-5 rounded-lg mb-8 bg-[#D9DFC6]">
-                    <p className="mb-1">🍴 {cuisines.join(", ")} <span className="ml-10">🛒 {costForTwoMessage}</span> <span className="ml-10">⭐ {totalRatingsString}</span></p>
+                    <p className="mb-1 ">🍴 {cuisines.join(", ")} <span className="ml-10">🛒 {costForTwoMessage}</span> <span className="ml-10">⭐ {avgRating} ({totalRatingsString})</span></p>
                     <p className="mb-1">📍 {areaName} <span className="ml-15">⏱ {sla.minDeliveryTime}-{sla.maxDeliveryTime} mins</span></p>
-
                 </div>
-
-                <h2 className="font-bold text-xl text-center mt-3">Menu</h2>
+                <h2 className="font-bold text-xl text-center m-3">Menu</h2>
             </div>
-            {itemCards.map((item) => (
-                <div className="flex flex-start justify-between">
-                    <ul key={item.card.info.id} className="flex flex-start justify-between p-5 border-b border-b-gray-400">
-                        <li className="m-3"><span className="font-semibold">{item.card.info.name}</span>
-                        <p className="font-semibold">Rs. {item.card.info.price / 100 || item.card.info.defaultPrice / 100}</p>
-                        <p className="text-[#646464]">{item.card.info.description}</p></li>
-                        <img src={MENU_URL + item.card.info.imageId} className="w-[110px] h-[110px]"></img>
 
-                    </ul>
-                </div>
-            ))}
+            {/* Categories accordion */}
+            {categories.map((category, index) => (
+                <RestaurantCategory
+                    key={category?.card?.card?.title}
+                    data={category?.card?.card}
+                    showItems={index === showIndex ? true : false}
+                    setShowIndex= {() => setShowIndex(index)} />
+                ))}
         </div>
-    )
+   ) 
 }
 
 export default RestaurantMenu;

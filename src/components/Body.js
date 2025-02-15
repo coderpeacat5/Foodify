@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,7 +10,11 @@ const Body = () => {
 
     const [searchText, setSearchText] = useState("");
 
+    console.log("Body Rendered",listOfRestaurants)
+
     const onlineStatus = useOnlineStatus()
+
+    const PromotedRestaurantCard = withPromotedLabel(RestaurantCard)
 
     useEffect(() => {
         fetchData();
@@ -28,6 +32,7 @@ const Body = () => {
         setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
+        
     }
 
 
@@ -41,19 +46,19 @@ const Body = () => {
             <div className="px-3 flex justify-between items-center mb-4">
                 <div className="flex ">
                     <div className="border border-gray-400 p-0 mr-8 rounded-sm bg-[#FBF6E9]">
-                        <input type="text" placeholder="Search.."  
-                        className=" px-2"
+                        <input type="text" placeholder="Search.."
+                            className=" px-2"
                             value={searchText}
                             onChange={(e) => {
                                 setSearchText(e.target.value)
                             }}></input>
-                        <button className="cursor-pointer p-1 bg-[]" 
-                        onClick={() => {
-                            const filteredRestaurant = listOfRestaurants.filter(
-                                (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                        <button className="cursor-pointer p-1 bg-[]"
+                            onClick={() => {
+                                const filteredRestaurant = listOfRestaurants.filter(
+                                    (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
 
-                            setFilteredRestaurant(filteredRestaurant)
-                        }}>🔍</button>
+                                setFilteredRestaurant(filteredRestaurant)
+                            }}>🔍</button>
                     </div>
                     <button className="filter-btn rounded-sm px-2 bg-[#B2C9AD] hover:bg-[#9db099] cursor-pointer"
                         onClick={() => {
@@ -70,7 +75,14 @@ const Body = () => {
             <div className="flex flex-wrap ">
 
                 {filteredRestaurant.map((restaurant) => (
-                    <Link to={"/restaurants/" + restaurant.info.id} key={restaurant.info.id} style={{ textDecoration: "none", color: "black" }}><RestaurantCard resData={restaurant} /></Link>
+                    <Link to={"/restaurants/" + restaurant.info.id} key={restaurant.info.id} style={{ textDecoration: "none", color: "black" }}>
+                        {restaurant.info.promoted ? (
+                            < PromotedRestaurantCard resData={restaurant} />
+                        ) : (
+                            <RestaurantCard resData={restaurant} />
+                        )}
+                        
+                    </Link>
                 ))}
             </div>
         </div>
