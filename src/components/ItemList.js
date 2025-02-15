@@ -1,7 +1,17 @@
+import { useId } from "react";
 import { MENU_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
-    console.log(items);
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        dispatch(addItem(item))
+    }
+
+    // console.log(items);
+
     return (
         <div>
             {items.map((item) => (
@@ -31,7 +41,9 @@ const ItemList = ({ items }) => {
                             className="w-full h-full rounded-md shadow-lg "
                             
                         />
-                        <button className="absolute w-20 mb-1 -bottom-1.5 left-1/2 transform -translate-x-1/2 bg-white text-[#1ba672] py-1.5 px-3 shadow-md rounded-md font-medium hover:bg-gray-100 cursor-pointer">
+                        <button 
+                        className="absolute w-20 mb-1 -bottom-1.5 left-1/2 transform -translate-x-1/2 bg-white text-[#1ba672] py-1.5 px-3 shadow-md rounded-md font-medium hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleAddItem(item)}>
                             ADD 
                         </button>
                     </div>
