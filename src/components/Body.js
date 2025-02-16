@@ -50,7 +50,7 @@ const Body = () => {
                 <div className="flex items-center">
                     <div className="border border-gray-400 p-0 mr-8 rounded-sm bg-[#FBF6E9]">
                         <input type="text" placeholder="Search.."
-                            className=" px-2"
+                            className=" px-2 focus:outline-none "
                             value={searchText}
                             onChange={(e) => {
                                 setSearchText(e.target.value)

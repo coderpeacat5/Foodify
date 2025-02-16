@@ -30,9 +30,9 @@ const Header = () => {
                         <Link to="about">About Us</Link></li>
                     <li className=" px-4 hover:font-bold cursor-pointer">
                         <Link to="/contact">Contact Us</Link> </li>
-                    <li className=" px-4 hover:font-bold cursor-pointer">
+                    {/* <li className=" px-4 hover:font-bold cursor-pointer">
                         <Link to="/grocery">Grocery</Link>
-                    </li >
+                    </li > */}
                     <li className=" px-4 hover:font-bold cursor-pointer">
                         <Link to="/cart">Cart
                             <span className=" bg-gray-500 text-white text-xs font-bold ml-1 px-2 py-0.5 rounded-full">
