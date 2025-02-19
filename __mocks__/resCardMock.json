@@ -1,0 +1,77 @@
+{
+    "id": "11104",
+    "name": "Pizza Hut",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/16/8b1d941b-0571-40af-b161-3259f3467c16_11104.jpg",
+    "locality": "Sonia Theatres",
+    "areaName": "Vikas puri",
+    "costForTwo": "₹350 for two",
+    "cuisines": [
+        "Pizzas"
+    ],
+    "avgRating": 4.3,
+    "parentId": "721",
+    "avgRatingString": "4.3",
+    "totalRatingsString": "7.9K+",
+    "sla": {
+        "deliveryTime": 22,
+        "lastMileTravel": 0.3,
+        "serviceability": "SERVICEABLE",
+        "slaString": "20-25 mins",
+        "lastMileTravelString": "0.3 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2025-02-19 02:00:00",
+        "opened": true
+    },
+    "badges": {
+        "imageBadges": [
+            {
+                "imageId": "Rxawards/_CATEGORY-Pizza.png",
+                "description": "Delivery!"
+            }
+        ]
+    },
+    "isOpen": true,
+    "aggregatedDiscountInfoV2": {},
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {
+                "badgeObject": [
+                    {
+                        "attributes": {
+                            "description": "Delivery!",
+                            "imageId": "Rxawards/_CATEGORY-Pizza.png"
+                        }
+                    }
+                ]
+            },
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "--"
+        }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}

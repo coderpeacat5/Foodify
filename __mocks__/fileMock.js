@@ -1,0 +1,1 @@
+module.exports = 'test-file-stub'; // or module.exports = { src: '/img.jpg' };
